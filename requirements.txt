@@ -1,0 +1,7 @@
+bertopic
+sentence-transformers==2.2.2
+transformers==4.30.0
+streamlit
+huggingface-hub
+joblib
+numpy<2.0.0
