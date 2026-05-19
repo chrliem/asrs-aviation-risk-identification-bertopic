@@ -24,7 +24,7 @@ if st.button("Analyze Topic"):
         topics, _ = topic_model.transform([user_input])
         topic_info = topic_model.get_topic_info(topics[0])
         
-        st.success(f"Detected Topic: {topic_info['CustomName'].values[0]}")
+        st.success(f"Risk Factor: {topic_info['CustomName'].values[0]}")
         st.markdown("---")
         st.write("Keywords:")
         keywords = topic_model.get_topic(topics[0])
