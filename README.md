@@ -29,27 +29,28 @@ The model generated 17 distinct risk factors.
 ![Topic Intensity](topic%20intensity.png)
 
 ### Identified Risk Factors
+| Topic | Count | Representation | Label (T5) | Label (Alpaca) | Final Validated Label |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| -1 | 16370 | atc, pilot, landing, 000, final, turn, asked, clearance, visual, takeoff | - | - | - |
+| 0 | 33490 | aircraft, landing, time, engine, atc, turn, control, ground, gear, maintenance | Pilot deviation | Engine Failure. | System/Component Failure or Malfunction |
+| 1 | 1687 | dg, cargo, dangerous goods, hazmat, ramp, dry, paperwork, received, aircraft, dispatch | Hazardous Goods | Hazardous Goods: Explosive Release Devices, Dry Ice, Planned Dangerous Goods, Inconsistencies with Planned Dangerous Goods, Unusual Contents, Unauthorized Access | Hazardous Goods Mishandling |
+| 2 | 1625 | maintenance, mel, aircraft, mechanic, work, logbook, installed, crew, manual, task | Maintenance | Maintenance Control - Oversight - Unlawful Sign-off - Unreliable Measurement - Unreliable Procedures - Unreliable Procedures - Unreliable Procedures - Unreliable Procedures | Maintenance Control Failure |
+| 3 | 688 | drone, saw, appeared, altitude, uas, near, atc, msl, color, 500 | drone | <No Result> | Drone Encounter |
+| 4 | 590 | flight attendant, fa, passengers, seat, boarding, door, galley, minutes, safety, medlink | medlink | Emergency Safety Risk Factor: Seizure | Disruptive Passenger |
+| 5 | 461 | flight, hours, duty, company, fatigued, 117, training, scheduled, crew scheduling, captain | fatigued | Flight Delay | Crew Duty/Fatigue Management Failure |
+| 6 | 382 | slide, maintenance, cargo, latch, flight attendant, disarmed, noise, cockpit, cabin door, safety | cockpit door | Safety Issue. | Cabin Safety Equipment |
+| 7 | 344 | wearing, fa, mask policy, seat, face mask, covering, comply, child, flight attendant, nose mouth | wearing | Regulatory Non-Compliance | Passenger Non-Compliance |
+| 8 | 270 | gps, jamming, nav, rnp, interference, transponder, eicas, messages, dme, airspace | GPS Loss of Signal/GPS Signal Interference | Safety Risk Factor: GPS Jamming/Interference. | Navigation System Interference |
+| 9 | 251 | bright, runway lights, notam, pilot, beacon, taxiway, red, night vision, distracting, time | bright | Runway incursion. | Runway Lighting/NOTAM Failure |
+| 10 | 210 | ipad, efb, charts, mount, update, use, jeppesen, pilot, fd pro, manuals | EFB (MS Surface) | Pilot Distraction. | Pilot Distraction |
+| 11 | 195 | shattered, qrh, atc, checklist, maintenance, emergency, windscreen, landing, pressurization, crew | window shattered | Emergency | Window Structural Failure |
+| 12 | 186 | airspace, uas, authorization, class, faa, 107, dji, location, mission, helicopter | 107 | Airspace Restrictions | UAS Airspace Violation |
+| 13 | 166 | crew oxygen, maintenance, masks, hose, gauge, check, preflight, o2 bottle, aircraft, safety | Crew oxygen bottle valves partially closed | Crew Oxygen Bottle Valve Partially Closed. | Oxygen System Malfunction |
+| 14 | 138 | covid 19, tested, company, sick, health, quarantine, days, symptoms, flight attendant, cdc | Covid 19 | Potential COVID exposure. | Disease Exposure |
+| 15 | 132 | tfrs, faa, information, checked, following, stadium, garmin, flight plan, day, vfr flight | pilot deviation | TFR | Pilot Deviation |
+| 16 | 105 | spoiler, maintenance, flight control, landing, speed, flaps, deactivated, crew, checklist, page | deactivated | Hazard: Faulty spoiler. | Spoiler System Malfunction |
 
-| Topic | Final Label after Validation |
-| :--- | :--- |
-| 0 | System/Component Failure or Malfunction |
-| 1 | Hazardous Goods Mishandling |
-| 2 | Maintenance Control Failure |
-| 3 | Drone Encounter |
-| 4 | Disruptive Passenger |
-| 5 | Crew Duty/Fatigue Management Failure |
-| 6 | Cabin Safety Equipment |
-| 7 | Passenger Non-Compliance |
-| 8 | Navigation System Interference |
-| 9 | Runway Lighting/NOTAM Failure |
-| 10 | Pilot Distraction |
-| 11 | Window Structural Failure |
-| 12 | UAS Airspace Violation |
-| 13 | Oxygen System Malfunction |
-| 14 | Disease Exposure |
-| 15 | Pilot Deviation |
-| 16 | Spoiler System Malfunction |
-
+---
 ---
 
 ## Author
