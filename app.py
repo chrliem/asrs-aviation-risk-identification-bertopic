@@ -2,6 +2,7 @@ import streamlit as st
 from bertopic import BERTopic
 from huggingface_hub import snapshot_download
 import numpy as np
+import plotly.express as px
 
 st.set_page_config(page_title="Aviation Risk Identification", layout="wide")
 
@@ -28,13 +29,24 @@ st.title("✈️ Aviation Risk Factor Identification - Topic Modeling Approach u
 user_input = st.text_area("Enter aviation incident report narrative here:", height=200)
 
 with st.expander("View Research Dataset Insights"):
-    st.write("Distribution of the 17 identified risk factors (Log scale):")
-    
+    st.write("Distribution of incident categories:")
     topic_info = topic_model.get_topic_info().copy()
     topic_info.loc[topic_info['Topic'] == -1, 'CustomName'] = 'Outlier'
-    topic_info['LogCount'] = np.log1p(topic_info['Count'])
+    topic_info = topic_info.sort_values('Count', ascending=False)
     
-    st.bar_chart(topic_info.set_index('CustomName')['LogCount'])
+    fig = px.bar(
+        topic_info, 
+        x='CustomName', 
+        y='Count',
+        color='Count',
+        color_continuous_scale='Blues'
+    )
+    fig.update_layout(
+        xaxis_title="Risk Factor",
+        yaxis_title="Number of Reports",
+        xaxis={'tickangle': -45}
+    )
+    st.plotly_chart(fig, use_container_width=True)
 
 if st.button("Analyze Report"):
     if user_input:
