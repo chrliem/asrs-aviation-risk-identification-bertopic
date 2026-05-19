@@ -1,4 +1,7 @@
 bertopic
 streamlit
 huggingface-hub
+joblib
 safetensors
+torch
+torchvision
