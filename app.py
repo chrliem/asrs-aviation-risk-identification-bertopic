@@ -1,6 +1,7 @@
 import streamlit as st
 from bertopic import BERTopic
 from huggingface_hub import snapshot_download
+import numpy as np
 
 st.set_page_config(page_title="Aviation Risk Identification", layout="wide")
 
@@ -27,9 +28,13 @@ st.title("✈️ Aviation Risk Factor Identification - Topic Modeling Approach u
 user_input = st.text_area("Enter aviation incident report narrative here:", height=200)
 
 with st.expander("View Research Dataset Insights"):
-    st.write("Distribution of the 17 identified risk factors:")
-    topic_info = topic_model.get_topic_info()
-    st.bar_chart(topic_info.set_index('CustomName')['Count'])
+    st.write("Distribution of the 17 identified risk factors (Log scale):")
+    
+    topic_info = topic_model.get_topic_info().copy()
+    topic_info.loc[topic_info['Topic'] == -1, 'CustomName'] = 'Outlier'
+    topic_info['LogCount'] = np.log1p(topic_info['Count'])
+    
+    st.bar_chart(topic_info.set_index('CustomName')['LogCount'])
 
 if st.button("Analyze Report"):
     if user_input:
