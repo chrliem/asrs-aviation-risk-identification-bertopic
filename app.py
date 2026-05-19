@@ -29,8 +29,10 @@ st.title("✈️ Aviation Risk Factor Identification - Topic Modeling Approach u
 user_input = st.text_area("Enter aviation incident report narrative here:", height=200)
 
 with st.expander("View Research Dataset Insights"):
-    st.write("Distribution of incident categories:")
+    st.write("Distribution of the 17 identified risk factors:")
     topic_info = topic_model.get_topic_info().copy()
+    
+    topic_info = topic_info[topic_info['Topic'] != -1]
     topic_info.loc[topic_info['Topic'] == -1, 'CustomName'] = 'Outlier'
     topic_info = topic_info.sort_values('Count', ascending=False)
     
