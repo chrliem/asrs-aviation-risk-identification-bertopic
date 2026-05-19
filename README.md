@@ -17,14 +17,14 @@ The best-performing model (M5) achieved the highest coherence (c_v = 0.646) and 
 ## Methodology
 The topic modeling process followed the BERTopic pipeline with fine-tuning steps for representation refinement.
 
-![Research Methodology](method%20diagram%20600dpi.jpg)
+![Research Methodology](method%20diagram%20600dpi.png)
 
 ---
 
 ## Results
 The model generated 17 distinct risk factors.
 
-![Topic Representation](doctopics_600dpi.jpg)
+![Topic Representation](doctopics_600dpi.png)
 ![Topic Distribution](stacked%20topic%20distribution.png)
 ![Topic Intensity](topic%20intensity.png)
 
