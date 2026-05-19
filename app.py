@@ -28,28 +28,6 @@ st.title("✈️ Aviation Risk Factor Identification - Topic Modeling Approach u
 
 user_input = st.text_area("Enter aviation incident report narrative here:", height=200)
 
-with st.expander("View Research Dataset Insights"):
-    st.write("Distribution of the 17 identified risk factors:")
-    topic_info = topic_model.get_topic_info().copy()
-    
-    topic_info = topic_info[topic_info['Topic'] != -1]
-    topic_info.loc[topic_info['Topic'] == -1, 'CustomName'] = 'Outlier'
-    topic_info = topic_info.sort_values('Count', ascending=False)
-    
-    fig = px.bar(
-        topic_info, 
-        x='CustomName', 
-        y='Count',
-        color='Count',
-        color_continuous_scale='Blues'
-    )
-    fig.update_layout(
-        xaxis_title="Risk Factor",
-        yaxis_title="Number of Reports",
-        xaxis={'tickangle': -45}
-    )
-    st.plotly_chart(fig, use_container_width=True)
-
 if st.button("Analyze Report"):
     if user_input:
         topics, _ = topic_model.transform([user_input])
@@ -58,3 +36,11 @@ if st.button("Analyze Report"):
         st.success(f"Risk Factor: {topic_info['CustomName'].values[0]}")
     else:
         st.warning("Please enter text first.")
+
+with st.expander("Research Methodology"):
+    st.image("method diagram 600dpi.jpg")
+
+with st.expander("Research Results"):
+    st.image("doctopics_600dpi.jpg")
+    st.image("stacked topic distribution.png")
+    st.image("topic intensity.png")
