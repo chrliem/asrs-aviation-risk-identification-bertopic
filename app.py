@@ -1,14 +1,18 @@
 import streamlit as st
 from bertopic import BERTopic
-from huggingface_hub import snapshot_download
+from huggingface_hub import hf_hub_download
+from sentence_transformers import SentenceTransformer
 
 st.set_page_config(page_title="Aviation Risk Dashboard", layout="wide")
 
 @st.cache_resource
 def load_model():
     repo_id = "chrliem/asrs-aviation-risk-topics-bertopic"
-    model_path = snapshot_download(repo_id=repo_id)
-    return BERTopic.load(model_path)
+    model_file = hf_hub_download(repo_id=repo_id, filename="model.safetensors")
+    
+    embedding_model = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
+    
+    return BERTopic.load(model_file, embedding_model=embedding_model)
 
 topic_model = load_model()
 
