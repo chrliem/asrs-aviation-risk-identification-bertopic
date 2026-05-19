@@ -38,9 +38,9 @@ if st.button("Analyze Report"):
         st.warning("Please enter text first.")
 
 with st.expander("Research Methodology"):
-    st.image("method diagram 600dpi.jpg")
+    st.image("method diagram 600dpi.png")
 
 with st.expander("Research Results"):
-    st.image("doctopics_600dpi.jpg")
+    st.image("doctopics_600dpi.png")
     st.image("stacked topic distribution.png")
     st.image("topic intensity.png")
