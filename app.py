@@ -8,7 +8,7 @@ st.set_page_config(page_title="Aviation Risk Dashboard", layout="wide")
 @st.cache_resource
 def load_model():
     repo_id = "chrliem/asrs-aviation-risk-topics-bertopic"
-    model_file = hf_hub_download(repo_id=repo_id, filename="model.safetensors")
+    model_file = hf_hub_download(repo_id=repo_id, filename="topics.safetensors")
     
     embedding_model = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
     
